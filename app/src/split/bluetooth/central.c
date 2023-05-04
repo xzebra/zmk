@@ -258,10 +258,6 @@ static uint8_t split_central_notify_func(struct bt_conn *conn,
     return BT_GATT_ITER_CONTINUE;
 }
 
-<<<<<<< HEAD
-static void split_central_subscribe(struct bt_conn *conn, struct bt_gatt_subscribe_params *params) {
-    int err = bt_gatt_subscribe(conn, params);
-=======
 void peripheral_batt_lvl_change_callback(struct k_work *work) {
     struct zmk_peripheral_battery_state_changed ev;
     while (k_msgq_get(&peripheral_batt_lvl_msgq, &ev, K_NO_WAIT) == 0) {
@@ -333,7 +329,6 @@ static uint8_t split_central_battery_level_read_func(struct bt_conn *conn, uint8
 static void split_central_subscribe(struct bt_conn *conn,
                                     struct bt_gatt_subscribe_params *subscribe_params) {
     int err = bt_gatt_subscribe(conn, subscribe_params);
->>>>>>> katona/split_battery_service
     switch (err) {
     case -EALREADY:
         LOG_DBG("[ALREADY SUBSCRIBED]");
